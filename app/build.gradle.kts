@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -58,9 +59,15 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Navigation for Compose
-    implementation("androidx.navigation:navigation-compose-android:2.9.6")
+    implementation("androidx.navigation:navigation-compose:2.9.6")
 
     // Lifecycle + ViewModel integration with Compose
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.0")
+
+    // Firebase
+    implementation(platform("com.google.firebase:firebase-bom:34.5.0"))
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-analytics-ktx")
 }
