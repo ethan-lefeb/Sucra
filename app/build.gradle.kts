@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.blacksmith.sucra"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.blacksmith.sucra"
