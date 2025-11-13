@@ -12,6 +12,7 @@ import androidx.navigation.compose.rememberNavController
 import com.blacksmith.sucra.ui.navigation.SucraNavHost
 import com.blacksmith.sucra.ui.theme.SucraTheme
 
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
