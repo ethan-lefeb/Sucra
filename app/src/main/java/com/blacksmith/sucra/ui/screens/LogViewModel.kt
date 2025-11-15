@@ -34,6 +34,24 @@ class LogViewModel : ViewModel() {
         observeEntries()
     }
 
+    fun deleteEntry(entry: LogEntry) {
+        val user = auth.currentUser
+        if (user == null) {
+            errorMessage = "You must be signed in to delete entries."
+            return
+        }
+
+        firestore.collection("users")
+            .document(user.uid)
+            .collection("logEntries")
+            .document(entry.id)   // assumes LogEntry has an 'id' mapped from doc.id
+            .delete()
+            .addOnFailureListener { e ->
+                errorMessage = e.localizedMessage ?: "Failed to delete entry."
+            }
+    }
+
+
     private fun observeEntries() {
         val user = auth.currentUser ?: return
 
